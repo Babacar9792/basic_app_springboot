@@ -1,0 +1,33 @@
+<configuration>
+    <!-- Désactiver les logs des dépendances -->
+    <logger name="org.springframework" level="OFF"/>
+    <logger name="org.hibernate" level="OFF"/>
+    <logger name="org.apache" level="OFF"/>
+    <logger name="org.jboss" level="OFF"/>
+    <logger name="com.zaxxer" level="OFF"/>
+    <logger name="sun.rmi" level="OFF"/>
+    <logger name="javax.management" level="OFF"/>
+    <!-- Appender Console -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender Fichier -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/basic_app.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger root avec plusieurs appenders -->
+    <root level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
